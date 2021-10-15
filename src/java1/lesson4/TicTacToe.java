@@ -83,9 +83,9 @@ public class TicTacToe {
     }
 
     private static void aiTurn() {
-        int[] cell = getNextCellToWin(DOT_X);
+        int[] cell = getNextCellToWin(DOT_O);
         if (cell == null) {
-            cell = getNextCellToWin(DOT_O);
+            cell = getNextCellToWin(DOT_X);
             if (cell == null) {
                 cell = getRandomEmptyCell();
             }
@@ -115,11 +115,7 @@ public class TicTacToe {
     }
 
     private static boolean isWin(char symbol) {
-        if (checkRowsAndCols(symbol)) {
-            return true;
-        } else {
-            return checkDiagonals(symbol);
-        }
+        return checkRowsAndCols(symbol) || checkDiagonals(symbol);
     }
 
     private static boolean checkDiagonals(char symbol) {
@@ -132,6 +128,7 @@ public class TicTacToe {
                 return true;
             }
         }
+
         return false;
     }
 
@@ -147,6 +144,7 @@ public class TicTacToe {
                 }
             }
         }
+
         return false;
     }
 
