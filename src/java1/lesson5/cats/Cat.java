@@ -1,30 +1,25 @@
 package java1.lesson5.cats;
 
 public class Cat {
+
+    // private, default, protected, public
     private String name;
     private String color;
-    int age;
+    private int age;
 
-    public Cat(String name, String color, int age) {
-        this.color = color;
-        this.name = name;
-        this.age = age;
+    public Cat(String name, String color) {
+        this(name, color, 4);
     }
 
-    public Cat(String name) {
-        this(name, "Red", 1);
+    public Cat(String name, String color, int age) {
+        this.name = name;
+        this.color = color;
+        this.age = age;
+
+//        return this;
     }
 
     public Cat() {
-        this("Barsik");
-    }
-
-    public void meow() {
-        System.out.println(buildMeowMessage());
-    }
-
-    private String buildMeowMessage() {
-        return name + " said 'meow!'";
     }
 
     public String getName() {
@@ -40,15 +35,24 @@ public class Cat {
     }
 
     public void setColor(String color) {
-//        System.out.println("User sets new value to color = " + color);
         this.color = color;
     }
 
     public int getAge() {
+        System.out.println("current age is " + age);
         return age;
     }
 
     public void setAge(int age) {
         this.age = age;
     }
+
+    public void meow() {
+        System.out.println(buildMeowMessage());
+    }
+
+    private String buildMeowMessage() {
+        return "Кот " + name + " мяукнул!";
+    }
+
 }
