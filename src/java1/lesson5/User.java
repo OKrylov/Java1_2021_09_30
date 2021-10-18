@@ -11,7 +11,7 @@ public class User {
     }
 
     public void jump() {
-        System.out.println("Человек " + surname + "прыгнул!");
+        System.out.println("Человек " + surname + " прыгнул!");
     }
 
 }
