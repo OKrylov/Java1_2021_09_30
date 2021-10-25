@@ -1,26 +1,51 @@
 package java1.lesson7.oop;
 
 public class Cat {
-
-    private final int appetite;
     private final String name;
-
+    private final int appetite;
+    private boolean satiety;
 
     public Cat(String name, int appetite) {
         this.name = name;
         this.appetite = appetite;
     }
 
-    public int getAppetite() {
-        return appetite;
-    }
-
     public String getName() {
         return name;
     }
 
-    public void eat(Plate plate) {
-        System.out.println("Cat has eaten!");
+    public int getAppetite() {
+        return appetite;
+    }
+
+    public boolean eat(Plate plate) {
+        String validateMessage = checkEat(plate);
+        if (validateMessage != null) {
+            System.out.println(validateMessage);
+            return false;
+        }
+
+        doEat(plate);
+        satiety = true;
+        return true;
+    }
+
+    private String checkEat(Plate plate) {
+        if ( !plate.isFoodEnough(appetite) ) {
+            return "Food is not enough in the plate!";
+        }
+        if (satiety) {
+            return "Cat is already satiety!";
+        }
+
+        return null;
+    }
+
+    private void doEat(Plate plate) {
         plate.decreaseFood(appetite);
+    }
+
+    public boolean isSatiety() {
+        return satiety;
     }
 }

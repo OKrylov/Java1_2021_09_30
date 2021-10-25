@@ -1,7 +1,6 @@
 package java1.lesson7.oop;
 
 public class Plate {
-
     private int food;
 
     public Plate(int food) {
@@ -16,11 +15,19 @@ public class Plate {
         this.food = food;
     }
 
-    public void decreaseFood(int foodCount) {
-        this.food -= foodCount;
-    }
-
     public void info() {
         System.out.println("plate: " + food);
+    }
+
+    public void decreaseFood(int appetite) {
+        this.food -= appetite; // food = food - appetite;
+    }
+
+    public void addFood(int foodCount) {
+        this.food += foodCount;
+    }
+
+    public boolean isFoodEnough(int foodCount) {
+        return getFood() >= foodCount;
     }
 }
